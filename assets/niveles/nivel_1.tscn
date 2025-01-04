@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7bvuk7f304es"]
+
+[ext_resource type="PackedScene" uid="uid://q6c664e88kbt" path="res://assets/personajes/player.tscn" id="1_3dal6"]
+[ext_resource type="Texture2D" uid="uid://bgi6c40sf18tr" path="res://imagenes/personajes d&d/objetos/agua.png" id="2_3bkvs"]
+[ext_resource type="PackedScene" uid="uid://5fdyfhpnit6r" path="res://assets/objetos/bolas/bola.tscn" id="3_tp7t4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doteq"]
+size = Vector2(16.6228, 20.48)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_grxtv"]
+friction = 0.0
+bounce = 1.0
+
+[node name="nivel 1" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_3dal6")]
+z_index = 1
+position = Vector2(144, 486)
+
+[node name="fondo" type="TextureRect" parent="."]
+offset_left = -192.0
+offset_top = -256.0
+offset_right = 584.0
+offset_bottom = 768.0
+texture = ExtResource("2_3bkvs")
+
+[node name="bordes" type="Node2D" parent="."]
+
+[node name="border_left" type="StaticBody2D" parent="bordes"]
+
+[node name="coll_border_left" type="CollisionShape2D" parent="bordes/border_left"]
+position = Vector2(-8, 256)
+scale = Vector2(1, 25)
+shape = SubResource("RectangleShape2D_doteq")
+
+[node name="border_right" type="StaticBody2D" parent="bordes"]
+position = Vector2(304, 0)
+
+[node name="coll_border_right" type="CollisionShape2D" parent="bordes/border_right"]
+position = Vector2(-8, 256)
+scale = Vector2(1, 25)
+shape = SubResource("RectangleShape2D_doteq")
+
+[node name="border_top" type="StaticBody2D" parent="bordes"]
+position = Vector2(282.3, 0)
+scale = Vector2(17.3, -0.031)
+
+[node name="coll_border_top" type="CollisionShape2D" parent="bordes/border_top"]
+position = Vector2(-8, 256)
+scale = Vector2(1, 25)
+shape = SubResource("RectangleShape2D_doteq")
+
+[node name="border_bottom" type="StaticBody2D" parent="bordes"]
+position = Vector2(282.3, 0)
+scale = Vector2(17.3, -0.031)
+
+[node name="coll_border_bottom" type="CollisionShape2D" parent="bordes/border_bottom"]
+position = Vector2(-7.994, -17774.2)
+scale = Vector2(1, 25)
+shape = SubResource("RectangleShape2D_doteq")
+
+[node name="bola" parent="." instance=ExtResource("3_tp7t4")]
+position = Vector2(144, 192)
+physics_material_override = SubResource("PhysicsMaterial_grxtv")
+center_of_mass_mode = 1
+linear_damp_mode = 1

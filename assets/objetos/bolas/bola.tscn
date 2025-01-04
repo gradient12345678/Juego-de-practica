@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://5fdyfhpnit6r"]
+
+[ext_resource type="Script" path="res://assets/objetos/bolas/bola.gd" id="1_76b3c"]
+[ext_resource type="Texture2D" uid="uid://c7xc13eiha1sp" path="res://imagenes/personajes d&d/objetos/genkidama.png" id="2_8kbsb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6iub"]
+radius = 8.0
+
+[node name="bola" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_76b3c")
+
+[node name="coll_bola" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_l6iub")
+
+[node name="spr_bola" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-07, -8.9407e-07)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("2_8kbsb")

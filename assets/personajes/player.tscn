@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://q6c664e88kbt"]
+
+[ext_resource type="Script" path="res://assets/personajes/player.gd" id="1_k4ism"]
+[ext_resource type="Texture2D" uid="uid://b7w2rcq5i2c73" path="res://imagenes/personajes d&d/objetos/puente.png" id="1_r4t78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cud0q"]
+size = Vector2(256, 56)
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(128, 488)
+script = ExtResource("1_k4ism")
+metadata/_edit_group_ = true
+
+[node name="spr_player" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_r4t78")
+
+[node name="Col_player" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_cud0q")
